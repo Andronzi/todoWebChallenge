@@ -1,14 +1,19 @@
 <template>
   <div class="task-list" v-for="item in tasks" v-bind:key="item.id">
-    <input type="checkbox" :id="item.id" @click="toggle($event, item.id)">
-    <li v-if="item.status == 'active'" class="task-list__element">
-      {{ item.value }}
-      {{ item.status }}
-    </li>
-    <li v-else class="task-list__element completed">
-      {{ item.value }}
-      {{ item.status }}
-    </li>
+    <div v-if="item.status == 'active'">
+      <input type="checkbox" :id="item.id" @click="toggle($event, item.id)">
+      <li class="task-list__element">
+        {{ item.value }}
+        {{ item.status }}
+      </li>
+    </div>
+    <div v-else>
+      <input type="checkbox" :id="item.id" @click="toggle($event, item.id)" checked>
+      <li class="task-list__element completed">
+        {{ item.value }}
+        {{ item.status }}
+      </li>
+    </div>
   </div>
 </template>
 
