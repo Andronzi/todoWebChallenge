@@ -10,7 +10,7 @@ import Tasks from "./components/TaskItems.vue";
     <h1>#todo</h1>
     <Navbar />
     <Add @updateTasks="tasks = $event" />
-    <Tasks :tasks="tasks" />
+    <Tasks @updateTasks="tasks = $event" :tasks="tasks" />
   </div>
 </template>
 

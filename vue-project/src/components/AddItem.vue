@@ -10,7 +10,7 @@ export default {
   methods: {
     add() {
       let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-      tasks.push({ id: tasks.length, value: this.$refs.input.value });
+      tasks.push({ id: tasks.length, value: this.$refs.input.value, status: "active" });
       localStorage.setItem("tasks", JSON.stringify(tasks));
       this.$emit("updateTasks", tasks);
     },
